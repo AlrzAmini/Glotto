@@ -1,32 +1,32 @@
 # Glotto
 
-**Glotto** is a modern, scalable backend API platform for a multilingual learning application. It provides all the APIs needed to power a front-end language-learning app, including user authentication, lessons, video streaming, progress tracking, and gamification features.
+**Glotto** is a modern, scalable backend API platform for a multilingual learning application. It powers a front-end language-learning app with APIs for user authentication, lessons, video streaming, progress tracking, and gamification features.
 
-It is designed with **feature-based Clean Architecture** to keep the code modular, testable, and maintainable. Glotto supports background processing, observability, and load-balanced deployments, making it ready for production at scale.
+Built with **feature-based Clean Architecture**, Glotto ensures modular, testable, and maintainable code. It supports background processing, observability, and load-balanced deployments, making it production-ready for high-scale environments.
 
 ---
 
 ## 🚀 Key Features
 
 - **Feature-Based Clean Architecture**  
-  Organizes code by features (Auth, Courses, Videos, Lessons, Subscriptions) instead of types, making it easier to maintain and extend.
+  Organizes code by features (e.g., Auth, Courses, Videos, Lessons, Subscriptions) for better maintainability and extensibility.
 
 - **Background Jobs with Hangfire**  
-  Reliable processing for video uploads, transcoding, notifications, and reminders, separate from API request threads.
+  Handles video uploads, transcoding, notifications, and reminders reliably, decoupled from API request threads.
 
 - **Observability with OpenTelemetry + Prometheus + Grafana**  
-  Collects traces, metrics, and logs for API requests, background jobs, and system performance. Enables monitoring of latency, failures, and throughput.
+  Collects traces, metrics, and logs for API requests, background jobs, and system performance, enabling monitoring of latency, failures, and throughput.
 
 - **Mapster for Object Mapping**  
-  Fast and clean DTO ↔ entity mapping for commands, queries, and responses.
+  Provides fast, clean DTO ↔ entity mapping for commands, queries, and responses.
 
 - **Scalar API Documentation**  
-  Auto-generated, browsable API docs to make the backend easily consumable for front-end developers.
+  Auto-generated, interactive API documentation for seamless integration with front-end developers.
 
 - **Database Support**  
-  PostgreSQL or SQL Server for relational data storage, optimized for scalability and multi-language content.
+  Supports PostgreSQL or SQL Server for scalable relational data storage, optimized for multilingual content.
 
-- **Load Balanced Ready**  
+- **Load-Balanced Ready**  
   Designed to run behind Nginx or HAProxy for high-traffic scenarios, ensuring API availability and reliability.
 
 ---
@@ -36,7 +36,7 @@ It is designed with **feature-based Clean Architecture** to keep the code modula
 - **Backend Framework:** ASP.NET Core  
 - **Database:** PostgreSQL / SQL Server  
 - **Background Jobs:** Hangfire  
-- **Mapping:** Mapster  
+- **Object Mapping:** Mapster  
 - **Observability:** OpenTelemetry, Prometheus, Grafana  
 - **API Documentation:** Scalar  
 
@@ -44,13 +44,13 @@ It is designed with **feature-based Clean Architecture** to keep the code modula
 
 ## 🏗️ Architecture Overview
 
-- **API Layer:** Minimal APIs or controllers exposing endpoints.  
-- **Application Layer:** Commands, Queries, Validators, and DTOs for each feature.  
-- **Domain Layer:** Core entities, value objects, and business rules.  
-- **Infrastructure Layer:** EF Core, storage services, Hangfire jobs, external integrations.  
+- **API Layer:** Exposes endpoints using Minimal APIs or controllers.  
+- **Application Layer:** Manages commands, queries, validators, and DTOs for each feature.  
+- **Domain Layer:** Defines core entities, value objects, and business rules.  
+- **Infrastructure Layer:** Integrates EF Core, storage services, Hangfire jobs, and external APIs.  
 
-**Features Example:**
-- Auth (Register, Login, JWT tokens)  
+**Feature Examples:**
+- Authentication (Register, Login, JWT tokens)  
 - Courses & Lessons  
 - Video streaming and processing  
 - Progress tracking & gamification  
@@ -58,23 +58,116 @@ It is designed with **feature-based Clean Architecture** to keep the code modula
 
 ---
 
+## 📋 Prerequisites
+
+Before running Glotto locally, ensure you have the following installed:
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)  
+- [PostgreSQL](https://www.postgresql.org/download/) or [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)  
+- [Git](https://git-scm.com/downloads)  
+- (Optional) [Docker](https://www.docker.com/get-started) for containerized deployments  
+- (Optional) [Hangfire Dashboard](https://www.hangfire.io/) for monitoring background jobs  
+- (Optional) [Prometheus](https://prometheus.io/download/) and [Grafana](https://grafana.com/grafana/download) for observability  
+
+---
+
 ## ⚡ Getting Started
 
-Follow these steps to run Glotto locally:
+Follow these steps to set up and run Glotto locally:
 
-1. **Clone the repository**
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/AlrzAmini/glotto.git
+   cd glotto
+   ```
+
+2. **Configure the database connection**  
+   Update the connection string in `src/Glotto.Api/appsettings.json`:  
+   ```json
+   {
+     "ConnectionStrings": {
+       "DefaultConnection": "Host=localhost;Database=GlottoDb;Username=your_username;Password=your_password"
+     }
+   }
+   ```
+
+3. **Apply EF Core migrations to initialize the database**  
+   Ensure you have the EF Core CLI tools installed (`dotnet tool install --global dotnet-ef`), then run:  
+   ```bash
+   dotnet ef database update --project src/Glotto.Infrastructure
+   ```
+
+4. **Start the backend API**  
+   ```bash
+   dotnet run --project src/Glotto.Api
+   ```
+
+5. **Access the API**  
+   - The API will be available at `https://localhost:5001` (or the port specified in `appsettings.json`).  
+   - View the Scalar API documentation at `https://localhost:5001/api-docs`.
+
+---
+
+## 🐳 Running with Docker
+
+To run Glotto in a containerized environment:
+
+1. Build the Docker image:  
+   ```bash
+   docker build -t glotto-api .
+   ```
+
+2. Run the container:  
+   ```bash
+   docker run -p 5001:80 -e ConnectionStrings__DefaultConnection="your_connection_string" glotto-api
+   ```
+
+---
+
+## 🧪 Running Tests
+
+Glotto includes unit and integration tests to ensure code quality. Run tests using:
+
 ```bash
-git clone https://github.com/AlrzAmini/glotto.git
+dotnet test
+```
 
-2. **Configure your database connection in appsettings.json**
-```bash
-Configure your database connection in appsettings.json.
+---
 
-3. **Apply EF Core migrations to initialize the database:**
-```bash
-dotnet ef database update
+## 📊 Observability Setup
 
-4. **Start the backend API**
-```bash
-dotnet run --project src/Glotto.Api
+To set up observability with Prometheus and Grafana:
 
+1. **Configure OpenTelemetry** in `appsettings.json` for trace and metric exports.  
+2. Run Prometheus and Grafana using Docker Compose:  
+   ```bash
+   docker-compose -f docker-compose.observability.yml up -d
+   ```
+3. Access Grafana at `http://localhost:3000` and configure dashboards for Glotto metrics.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.  
+2. Create a feature branch (`git checkout -b feature/your-feature`).  
+3. Commit your changes (`git commit -m "Add your feature"`).  
+4. Push to the branch (`git push origin feature/your-feature`).  
+5. Open a pull request with a clear description of your changes.
+
+Please ensure your code follows the project's coding standards and includes tests where applicable.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 📬 Contact
+
+For questions or feedback, reach out to the maintainer:  
+- **GitHub:** [AlrzAmini](https://github.com/AlrzAmini)  
+- **Email:** your-email@example.com
