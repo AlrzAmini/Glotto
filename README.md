@@ -61,8 +61,8 @@ Built with **feature-based Clean Architecture**, Glotto ensures modular, testabl
 ## 📋 Prerequisites
 
 Before running Glotto locally, ensure you have the following installed:
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)  
-- [PostgreSQL](https://www.postgresql.org/download/) or [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)  
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)  
+- [PostgreSQL](https://www.postgresql.org/download/) 
 - [Git](https://git-scm.com/downloads)  
 - (Optional) [Docker](https://www.docker.com/get-started) for containerized deployments  
 - (Optional) [Hangfire Dashboard](https://www.hangfire.io/) for monitoring background jobs  
@@ -170,4 +170,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 For questions or feedback, reach out to the maintainer:  
 - **GitHub:** [AlrzAmini](https://github.com/AlrzAmini)  
-- **Email:** your-email@example.com
+- **Email:** mranotmillion@gmail.com
