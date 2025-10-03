@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5339175F-E60E-4A3A-8FFC-5D8C258B0D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glotto.Domain", "Glotto.Domain\Glotto.Domain.csproj", "{B264D6D3-EC2A-413F-B346-22252DCA9797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glotto.Application", "Glotto.Application\Glotto.Application.csproj", "{9B61ACCB-015E-4D2D-8CA0-F3A23B2C6250}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glotto.Infrastructure", "Glotto.Infrastructure\Glotto.Infrastructure.csproj", "{E9ED440A-47E0-4149-B7B8-1D2209C64A43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glotto.Shared", "Glotto.Shared\Glotto.Shared.csproj", "{27EC709D-0F1F-4DB1-9068-FB28FBF09D9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glotto.Api", "Glotto.Api\Glotto.Api.csproj", "{A4793AF3-2BDE-430E-9285-3994C4BAD20E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B264D6D3-EC2A-413F-B346-22252DCA9797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B264D6D3-EC2A-413F-B346-22252DCA9797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B264D6D3-EC2A-413F-B346-22252DCA9797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B264D6D3-EC2A-413F-B346-22252DCA9797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B61ACCB-015E-4D2D-8CA0-F3A23B2C6250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B61ACCB-015E-4D2D-8CA0-F3A23B2C6250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B61ACCB-015E-4D2D-8CA0-F3A23B2C6250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B61ACCB-015E-4D2D-8CA0-F3A23B2C6250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9ED440A-47E0-4149-B7B8-1D2209C64A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9ED440A-47E0-4149-B7B8-1D2209C64A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9ED440A-47E0-4149-B7B8-1D2209C64A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9ED440A-47E0-4149-B7B8-1D2209C64A43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27EC709D-0F1F-4DB1-9068-FB28FBF09D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27EC709D-0F1F-4DB1-9068-FB28FBF09D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27EC709D-0F1F-4DB1-9068-FB28FBF09D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27EC709D-0F1F-4DB1-9068-FB28FBF09D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4793AF3-2BDE-430E-9285-3994C4BAD20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4793AF3-2BDE-430E-9285-3994C4BAD20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4793AF3-2BDE-430E-9285-3994C4BAD20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4793AF3-2BDE-430E-9285-3994C4BAD20E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B264D6D3-EC2A-413F-B346-22252DCA9797} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{9B61ACCB-015E-4D2D-8CA0-F3A23B2C6250} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E9ED440A-47E0-4149-B7B8-1D2209C64A43} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{27EC709D-0F1F-4DB1-9068-FB28FBF09D9B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A4793AF3-2BDE-430E-9285-3994C4BAD20E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30127BE0-90B4-4D20-A96A-A5AAD90E856F}
+	EndGlobalSection
+EndGlobal
