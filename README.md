@@ -62,6 +62,19 @@ It is designed with **feature-based Clean Architecture** to keep the code modula
 
 Follow these steps to run Glotto locally:
 
-1. **Clone the repository:**
+1. **Clone the repository**
 ```bash
 git clone https://github.com/AlrzAmini/glotto.git
+
+2. **Configure your database connection in appsettings.json**
+```bash
+Configure your database connection in appsettings.json.
+
+3. **Apply EF Core migrations to initialize the database:**
+```bash
+dotnet ef database update
+
+4. **Start the backend API**
+```bash
+dotnet run --project src/Glotto.Api
+
